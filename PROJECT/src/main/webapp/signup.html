@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/register.css">
+</head>
+<body>
+	<nav class="light-mode">
+        <h1 id="logo">E-learn</h1>
+    </nav>
+    <form action="main" method="post">
+        <h1>Sign Up</h1>
+        <div class="row">
+            <label for="name" id="left">Name:</label>
+            <input type="text" name="nm" placeholder="Enter your name" id="right" required>
+        </div>
+        <div class="row">
+            <label for="age" id="left">DOB:</label>
+            <input type="date" name="dob" id="right">
+        </div>
+        <div class="row">
+            <label for="email" id="left">Email:</label>
+            <input type="email" name="mail" placeholder="Enter your Email" id="right">
+        </div>
+        <div class="row">
+            <label for="password" id="left">Password:</label>
+            <input type="password" name="pass" placeholder="Enter password" id="right">
+        </div>
+        <div class="row btns">
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+            <button><a href="login.html">Back</a></button>
+        </div>
+    </form>
+</body>
+</html>

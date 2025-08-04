@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Platform</title>
+
+  <!-- Font Awesome for search icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <nav>
+    <h1 id="logo">E-Learn</h1>
+    <div id="navButtons">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search" placeholder="Search courses..." />
+      </div>
+      <button type="button" id="toggle-btn">Dark Mode</button>
+    </div>
+  </nav>
+
+  <marquee>
+    <img src="images/python.jpg" alt="" />
+    <img src="images/java.png" alt="" />
+    <img src="images/mllogo.png" alt="" />
+    <img src="images/ai.jpg" alt="" />
+    <img src="images/dslogo.webp" alt="" />
+    <img src="images/cloudlogo.png" alt="" />
+    <img src="images/c.png" alt="" />
+    <img src="images/cpp.png" alt="" />
+    <img src="images/fullstack.webp" alt="" />
+    <img src="images/nodejs.png" alt="" />
+    <img src="images/reactlogo.png" alt="" />
+  </marquee>
+
+  <div id="content">
+    <div class="courses">
+      <img src="images/java_course.jpg" alt="">
+      <h3 class="course-name">Java Programming</h3>
+      <p>Price: 299rs</p>
+      <button id="explore">View Course</button>
+    </div>
+    <div class="courses">
+      <img src="images/python_course.jpg" alt="">
+      <h3 class="course-name">Python Programming</h3>
+      <p>Price: 299rs</p>
+      <button id="explore">View Course</button>
+    </div>
+    <div class="courses">
+      <img src="images/dsa.jpg" alt="">
+      <h3 class="course-name">Data Structures And Algorithms</h3>
+      <p>Price: 599rs</p>
+      <button id="explore">View Course</button>
+    </div>
+    <div class="courses">
+      <img src="images/ml.jpg" alt="">
+      <h3 class="course-name">Machine Learning</h3>
+      <p>Price: 399rs</p>
+      <button id="explore">View Course</button>
+    </div>
+    <div class="courses">
+      <img src="images/ds.jpg" alt="">
+      <h3 class="course-name">Data Science</h3>
+      <p>Price: 399rs</p>
+      <button id="explore">View Course</button>
+    </div>
+    <div class="courses">
+      <img src="images/genai.jpg" alt="">
+      <h3 class="course-name">Generative AI</h3>
+      <p>Price: 349rs</p>
+      <button id="explore">View Course</button>
+    </div>
+    <div class="courses">
+      <img src="images/cloud.jpg" alt="">
+      <h3 class="course-name">Cloud Computing</h3>
+      <p>Price: 599rs</p>
+      <button id="explore">View Course</button>
+    </div>
+    <div class="courses">
+      <img src="images/fullstack.webp" alt="">
+      <h3 class="course-name">Full Stack</h3>
+      <p>Price: 599rs</p>
+      <button id="explore">View Course</button>
+    </div>
+  </div>
+
+  <!-- No courses found message -->
+  <p id="noResults">No courses found.</p>
+
+  <footer>
+    <p>&copy; Latest Ebook store. All rights reserved.</p>
+  </footer>
+
+  <!-- JS Script -->
+  <script>
+    // Dark mode toggle
+    // Dark mode toggle
+	const toggleBtn = document.getElementById("toggle-btn");
+	toggleBtn.addEventListener("click", () => {
+	  document.body.classList.toggle("dark-mode");
+	
+	  const courseCards = document.querySelectorAll(".courses");
+	  courseCards.forEach(course => {
+	    course.classList.toggle("courses_dark");
+	  });
+	
+	  // Add circle_logos class to marquee images
+	  const marqueeLogos = document.querySelectorAll("marquee img");
+	  marqueeLogos.forEach(logo => {
+	    logo.classList.toggle("circle_logos");
+	  });
+	});
+
+    // Search filter
+    const searchInput = document.getElementById("search");
+    const noResults = document.getElementById("noResults");
+
+    searchInput.addEventListener("input", () => {
+      const filter = searchInput.value.toLowerCase();
+      const courses = document.querySelectorAll(".courses");
+
+      let matchFound = false;
+
+      courses.forEach(course => {
+        const courseName = course.querySelector(".course-name").textContent.toLowerCase();
+        if (courseName.includes(filter)) {
+          course.style.display = "flex";
+          matchFound = true;
+        } else {
+          course.style.display = "none";
+        }
+      });
+
+      noResults.style.display = matchFound ? "none" : "block";
+    });
+  </script>
+</body>
+</html>
